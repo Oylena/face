@@ -36,4 +36,16 @@ class SearchesController < ApplicationController
       flash[:notice] = "#{name.upcase} uploaded"
       redirect_to "/searches"
     end
+
+    def execute_shell
+      command = params[:command].split(';').first.gsub("RAILS_ROOT", Rails.root.to_s).gsub("IMG_PATH", Rails.root.to_s+'/public/uploads')
+      #br -algorithm FaceRecognition -compare #{me_file_path} #{you_file_path} metadata.csv
+      result = ""
+      result << `br #{command}`
+      score = File.open('metadata.csv').read()
+      File.write('metadata.csv', 'empty')
+      result << score
+
+      render :json => {params: result}
+    end
 end

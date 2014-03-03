@@ -3,6 +3,7 @@ Face::Application.routes.draw do
   resources :searches do
     collection do
       post 'upload_file'
+      get 'execute_shell'
     end
   end
 
