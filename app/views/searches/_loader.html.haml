@@ -1,0 +1,6 @@
+= form_tag({:action => 'upload_file'}, :multipart => true, :method => 'POST') do
+  %div{style: "position:relative;"}
+    %a.btn.btn-primary.btn-loader{href: "javascript:;"}
+      Choose Image...
+      %input.btn-upload{name: "upload", size: "40", type: "file", id: 'upload', :value => 'Go', :multiple => false}
+    %span.label.label-info

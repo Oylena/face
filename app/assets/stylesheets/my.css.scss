@@ -1,0 +1,67 @@
+/*
+  Table of contents:
+
+  NAVIGATION-BAR
+  PHOTO-CONTAINER
+  UPLOAD-BUTTON
+*/
+
+/*NAVIGATION-BAR*/
+.navbar {
+  border-bottom: none;
+}
+
+/*PHOTO-CONTAINER*/
+.container.content {
+  margin-top: 60px;
+  padding-left: 80px;
+  .photo-container {
+    width:40%;
+    display: inline-block;
+    text-align: center;
+  }
+  .me-photo-container {
+    border: 1px solid white;
+  }
+  .you-photo-container {
+    border: 1px solid white;
+  }
+  .me-photo-container.selected, .you-photo-container.selected {
+    border: 1px solid black;
+  }
+}
+
+.image-thumb {
+  width: 110px;
+  height: 100px;
+  margin: 10px;
+}
+
+.image-thumb:hover {
+  border: 1px solid red;
+  cursor: pointer;
+}
+
+.notice {
+  height: 75px;
+  background: rgb(110, 177, 238);
+  text-align: center;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+
+/*UPLOAD-BUTTON*/
+.btn-loader {
+  position:relative;
+  input {
+    position:absolute;
+    z-index:2;
+    top:0;
+    left:0;
+    filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity:0;
+    background-color:transparent;
+    color:transparent;
+  }
+}

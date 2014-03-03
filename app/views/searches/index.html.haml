@@ -1,0 +1,48 @@
+- flash.each do |key, msg|
+  = content_tag :div, :class => [key, " message"], :id => "notice_#{key}" do
+    = msg
+    %br
+    %a.btn.btn-primary{:id => 'reset', :href=>'#'}
+      Okay
+
+
+-#
+  %a{:href => 'http://openbiometrics.org/', :style=>'display:block;color: black;'}
+    Open Source Biometric Recognition, Official site
+    %img{:src => "http://openbiometrics.org/diagram.png", :style => 'width: 300px;'}
+
+%h4
+  1. Upload a photos:
+
+%hr
+
+= render partial: "loader"
+
+%hr
+
+#dialog{title: "Basic dialog"}
+  - @images.each do |img_src|
+    %img.image-thumb{:src => img_src}
+
+%h4
+  2. Click an Unknown areas below, and select photos from gallery:
+
+%br
+.photo-container.me-photo-container
+  %img.photo.me{onerror: "this.src='http://www.ctbc.ca/wp-content/uploads/2010/03/Unknown-person.gif';", src: "#{@me_image}"}
+.photo-container.you-photo-container
+  %img.photo.you{onerror: "this.src='http://www.ctbc.ca/wp-content/uploads/2010/03/Unknown-person.gif';", src: "#{@you_image}"}
+
+%br
+%hr 
+
+%h4
+  3. Click 
+  %a.btn.btn-primary{:id => 'recognize'}
+    recognize
+  to view recognition results
+
+  
+%br
+%br
+%hr
